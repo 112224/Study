@@ -7,11 +7,11 @@ import java.lang.reflect.Field;
 public class ComnUtils extends Exception{
 
 
-    public static boolean validationCheck(Object obj) {
+    public static String validationCheck(Object obj) {
         if (obj == null) {
-            return false;
+            return "Object is Null";
         }
-        boolean result = true;
+        String result = "OK";
 
         Field[] fields = obj.getClass().getDeclaredFields();
 
@@ -20,15 +20,21 @@ public class ComnUtils extends Exception{
             if (ann != null) {
                 field.setAccessible(true);
                 String value = null;
+                String annoVal = null;
                 try {
-                    value = (String)field.get(obj);
+                    value = (String) field.get(obj);
+                    annoVal = ann.value();
+                    if ("NotBlank".equals(annoVal)) {
+                        if (value == null || value.trim().length() == 0) {
+                            result = field.getName() + " is null or blank";
+                            throw new RuntimeException(result);
+                        }
+                    }
+//                  else ... 가능
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
-                if (value == null || value.trim().length() == 0) {
-                    result = false;
-                    break;
-                }
+
 //                System.out.println("value = " + value);
             }
         }
