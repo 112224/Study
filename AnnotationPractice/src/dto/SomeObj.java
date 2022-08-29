@@ -1,8 +1,8 @@
-package DTO;
+package dto;
 
 
-import Annotation.NotRequired;
-import Annotation.Validation;
+import annotation.NotRequired;
+import annotation.Validation;
 
 public class SomeObj {
     @Validation

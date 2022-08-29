@@ -1,5 +1,5 @@
-import DTO.SomeObj;
-import Service.SomeServiceImpl;
+import dto.SomeObj;
+import service.SomeServiceImpl;
 
 public class TestApp {
     public static void main(String[] args) {

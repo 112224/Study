@@ -1,6 +1,6 @@
-package AnnotationUtils;
+package annotationUtils;
 
-import Annotation.Validation;
+import annotation.Validation;
 
 import java.lang.reflect.Field;
 

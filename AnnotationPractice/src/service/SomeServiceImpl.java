@@ -1,7 +1,7 @@
-package Service;
+package service;
 
-import AnnotationUtils.ComnUtils;
-import DTO.SomeObj;
+import annotationUtils.ComnUtils;
+import dto.SomeObj;
 
 public class SomeServiceImpl extends Exception {
 
